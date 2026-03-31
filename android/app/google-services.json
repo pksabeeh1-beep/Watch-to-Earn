@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "240790015841",
+    "project_id": "watch-to-earn-fc561",
+    "storage_bucket": "watch-to-earn-fc561.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:240790015841:android:e19d71c9bf6b1fa8053f20",
+        "android_client_info": {
+          "package_name": "com.croo.watchtoearn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "240790015841-uta84qrkperfblo3u38flp0jrlgqea79.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.croo.watchtoearn",
+            "certificate_hash": "0fad32fd79e3b896aa71311db8164cf2f891a932"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5L0a7U7_A32dIHIqoUJNrBUpIzJ7AMio"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

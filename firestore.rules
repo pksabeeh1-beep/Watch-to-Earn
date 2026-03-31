@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // User Collection: 
+    // - Users can read their own data.
+    // - Users CANNOT write to 'wallet_balance' or 'total_earned' (only server can).
+    // - Users can write other fields if necessary (like profile info), but for MVP we restrict write.
+    match /users/{userId} {
+      allow read: if request.auth != null && request.auth.uid == userId;
+      allow write: if false; // Only manageable via Cloud Functions for security
+    }
+    
+    // Withdrawals Collection:
+    // - Users can create a withdrawal request.
+    // - Logic validation happens in Cloud Functions or via strict create rules if we allowed client-side create,
+    //   but for now let's allow create if auth matches, but balance check MUST be server-side.
+    //   Actually, strictly speaking, making withdrawals via Cloud Function is safer.
+    //   But to follow the plan "create a document in a withdrawals collection", we can allow create.
+    match /withdrawals/{withdrawalId} {
+      allow create: if request.auth != null && request.resource.data.userId == request.auth.uid;
+      allow read: if request.auth != null && request.resource.data.userId == request.auth.uid;
+    }
+  }
+}
